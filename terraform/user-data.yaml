@@ -1,0 +1,9 @@
+#cloud-config
+
+users:
+  - default
+  - name: zasda
+    shell: /bin/bash
+    ssh_import_id:
+      - gh:zasdaym
+    sudo: ALL=(ALL) NOPASSWD:ALL

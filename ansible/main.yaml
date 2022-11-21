@@ -1,0 +1,17 @@
+- name: Standard configuration
+  hosts: all
+  become: true
+  roles:
+    - common
+
+- name: Configure nomad servers
+  hosts: servers
+  become: true
+  roles:
+    - nomad-server
+
+- name: Configure nomad clients
+  hosts: clients
+  become: true
+  roles:
+    - nomad-client

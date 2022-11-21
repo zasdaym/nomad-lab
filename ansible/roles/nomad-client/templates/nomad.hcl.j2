@@ -1,0 +1,15 @@
+data_dir = "/var/lib/nomad"
+
+acl {
+  enabled = true
+}
+
+client {
+  enabled = true
+
+  server_join = [
+    {% for server in groups['servers'] %}
+    "{{ server }}",
+    {% endfor %}
+  ]
+}

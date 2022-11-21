@@ -1,0 +1,12 @@
+- name: Install docker
+  ansible.builtin.apt:
+    name:
+      - docker.io
+    update_cache: yes
+
+- name: Generate nomad config
+  ansible.builtin.template:
+    src: ./templates/nomad.hcl.j2
+    dest: /etc/nomad.d/nomad.hcl
+  notify:
+    - Restart and enable nomad
